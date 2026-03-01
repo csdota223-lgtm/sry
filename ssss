@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>прости меня 🥺</title>
+  <style>
+    body { background: pink; font-family: Arial; text-align: center; padding: 50px; }
+    h1 { font-size: 3em; animation: shake 0.5s infinite; }
+    @keyframes shake {
+      0%, 100% { transform: rotate(-3deg); }
+      50% { transform: rotate(3deg); }
+    }
+    button { font-size: 2em; padding: 20px; cursor: pointer; border-radius: 20px; }
+    #msg { display: none; font-size: 1.5em; margin-top: 30px; }
+  </style>
+</head>
+<body>
+  <h1>💔 я облажался...</h1>
+  <p style="font-size:1.3em">нажми кнопку, если простишь меня</p>
+  <button onclick="forgive()">простить этого идиота 😤</button>
+  <div id="msg">
+    <h2>🎉 ура!! ты лучшая!! люблю тебя!! 💕</h2>
+    <p>обещаю больше не косячить (ну, стараться хотя бы)</p>
+  </div>
+  <script>
+    function forgive() {
+      document.getElementById('msg').style.display = 'block';
+      document.querySelector('button').style.display = 'none';
+      // запускаем конфетти
+      for(let i = 0; i < 50; i++) {
+        let heart = document.createElement('div');
+        heart.innerHTML = '💕';
+        heart.style = `position:fixed;font-size:2em;
+          left:${Math.random()*100}vw;top:-50px;
+          animation:fall ${1+Math.random()*2}s linear forwards`;
+        document.body.appendChild(heart);
+      }
+    }
+  </script>
+  <style>
+    @keyframes fall { to { top: 110vh; } }
+  </style>
+</body>
+</html>
